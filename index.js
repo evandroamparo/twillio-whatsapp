@@ -29,7 +29,7 @@ app.post('/message', (req, res) => {
             } else {
                 if (perde[computador] === usuario) {
                     // computador perdeu
-                    res.send(`<Response><Message>Eu escolhi *${computador}*</Message><Message>Você ganhou, mas quero jogar novamente!</Message></Response>`);
+                    res.send(`<Response><Message>Eu escolhi *${computador}*</Message><Message>Você ganhou, bora jogar de novo?</Message></Response>`);
                 } else {
                     // computador ganhou
                     const twiml = new twilio.twiml.MessagingResponse();
