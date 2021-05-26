@@ -14,6 +14,12 @@ const perde = {
     'tesoura': 'pedra'
 }
 
+const emojis = {
+    'pedra': '✊',
+    'papel': '✋',
+    'tesoura': '🖖'
+}
+
 app.post('/message', (req, res) => {
     console.log('nova mensagem', req.body.Body);
     const usuario = req.body.Body.toLowerCase();
@@ -29,11 +35,11 @@ app.post('/message', (req, res) => {
             } else {
                 if (perde[computador] === usuario) {
                     // computador perdeu
-                    res.send(`<Response><Message>Eu escolhi *${computador}*</Message><Message>Você ganhou, bora jogar de novo?</Message></Response>`);
+                    res.send(`<Response><Message>Eu escolhi *${computador} ${emojis[computador]}*</Message><Message>Você ganhou, bora jogar de novo?</Message></Response>`);
                 } else {
                     // computador ganhou
                     const twiml = new twilio.twiml.MessagingResponse();
-                    twiml.message(`Eu escolhi *${computador}*`);
+                    twiml.message(`Eu escolhi *${computador} ${emojis[computador]}*`);
                     twiml.message('Ganhei! Ganhei!!!')
                         .media('https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg');
                     res.send(twiml.toString());
