@@ -41,7 +41,7 @@ app.post('/message', (req, res) => {
                     const twiml = new twilio.twiml.MessagingResponse();
                     twiml.message(`Eu escolhi *${computador} ${emojis[computador]}*`);
                     twiml.message('Ganhei! Ganhei!!!')
-                        .media('https://farm8.staticflickr.com/7090/6941316406_80b4d6d50e_z_d.jpg');
+                        .media('https://source.unsplash.com/300x400/?robot');
                     res.send(twiml.toString());
                 }
             }
